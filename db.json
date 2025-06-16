@@ -260,39 +260,22 @@
       "rsvpCount": 0
     },
     {
-      "id": "3a41",
-      "name": "asdv",
-      "email": "bilasal@comaspany.com",
-      "password": "pass17",
-      "title": "sadv",
-      "type": "Social",
-      "date": "July 3, 2025",
-      "startTime": "10:00 AM",
-      "endTime": "12:30 PM",
-      "location": "qqwd",
-      "capacity": 25,
-      "about": "av",
-      "image": "",
-      "organizer": "waf",
-      "rsvpCount": 0
-    },
-    {
-      "id": "a253",
-      "name": "ajksdb",
-      "email": "adsb@aidn.com",
+      "id": "79dc",
+      "name": "SOHAIL AHAMD ",
+      "email": "ahamd@gmail.com",
       "pass": "",
-      "title": "aksdn",
+      "title": "Half Graduation",
       "type": "Social",
-      "date": "July 11, 2025",
-      "startTime": "11:30 AM",
-      "endTime": "06:30 PM",
-      "location": "nvhjbknm",
-      "capacity": 100,
-      "about": "wkwjbedc ",
-      "image": "",
-      "organizer": "asdc",
-      "rsvpCount": 0,
-      "password": "pass19"
+      "date": "June 19, 2025",
+      "startTime": "01:00 PM",
+      "endTime": "02:00 PM",
+      "location": "Department of Computer science",
+      "capacity": 50,
+      "about": "we have celebrated with friends. Also share cake with sir.",
+      "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750059283/no01yexgnsz7aqf1ipne.jpg",
+      "organizer": "atifism",
+      "rsvpCount": 1,
+      "password": "12341234"
     }
   ],
   "users": [
@@ -322,6 +305,18 @@
           "eventId": "2",
           "title": "Introduction to AI Seminar",
           "dateRsvped": "June 13, 2025"
+        }
+      ]
+    },
+    {
+      "id": "a29c",
+      "name": "SOHAIL AHAMD",
+      "email": "ahmad@gmail.com",
+      "rsvpedEvents": [
+        {
+          "eventId": "79dc",
+          "title": "Half Graduation",
+          "dateRsvped": "June 16, 2025"
         }
       ]
     }

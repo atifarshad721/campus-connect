@@ -33,7 +33,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
   const [failed, setFailed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [errors, setErrors] = useState({}); // Add error state
+  const [errors, setErrors] = useState({}); 
 
   const [formData, setFormData] = useState({
     name: event.name || "",
@@ -92,8 +92,8 @@ const EventForm = ({ isEditMode, event = {} }) => {
     // Check duration (2-8 hours)
     else {
       const duration = endTotal - startTotal;
-      if (duration < 120) {
-        newErrors.time = "Event must be at least 2 hours long";
+      if (duration < 60) {
+        newErrors.time = "Event must be at least 1 hour long";
       } else if (duration > 480) {
         newErrors.time = "Event cannot exceed 8 hours";
       }
@@ -132,6 +132,8 @@ const EventForm = ({ isEditMode, event = {} }) => {
       }
       inputData.image = imageUrl;
     }
+
+    console.log("Pass: ", inputData.pass);
 
     inputData = {
       ...inputData,
@@ -344,7 +346,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
                           </InputGroup.Text>
                           <Form.Control
                             type="password"
-                            name="password"
+                            name="pass"
                             placeholder="Enter your password"
                             value={formData.password}
                             onChange={handleChange}

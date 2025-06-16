@@ -56,9 +56,6 @@ const Header = () => {
                 <NavLink as={Link} to="/events" className={linkClass} style={activeLinkStyle}>
                   Events
                 </NavLink>
-                <NavLink as={Link} to="/admin-panel" className={linkClass} style={activeLinkStyle}>
-                  Admin
-                </NavLink>
               </Nav>
 
               <div className="d-flex justify-content-center align-items-center mt-3 mt-lg-0">
