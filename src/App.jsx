@@ -6,7 +6,6 @@ import EventsPage from "./pages/EventsPage";
 import EventDetailsPage from "./pages/EventDetailsPage";
 import AddEventPage from "./pages/AddEventPage";
 import EditEventPage from "./pages/EditEventPage";
-import AdminPanel from "./pages/AdminPanel";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
         <Route path="/events/:id" element={<EventDetailsPage />} />
         <Route path="/events/edit/:id" element={<EditEventPage />} />
         <Route path="/post-event" element={<AddEventPage />} />
-        <Route path="/admin-panel" element={<AdminPanel />} />
 
       </Routes>
       <Footer />

@@ -10,7 +10,7 @@ import {
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import eventImage from "../assets/hero.jpg";
+import eventImage from "../assets/placeholder.jpeg";
 import "../App.css";
 import { getPreviousDay } from "../utils/utils";
 

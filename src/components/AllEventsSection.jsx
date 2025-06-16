@@ -12,10 +12,10 @@ const AllEventsSection = ({ category, searchTerm }) => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://localhost:8080/events"); // replace with your endpoint
+        const res = await fetch("http://localhost:8080/events");
         const data = await res.json();
         setAllEvents(data);
-        setFilteredEvents(data); // show all by default
+        setFilteredEvents(data);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
@@ -24,13 +24,13 @@ const AllEventsSection = ({ category, searchTerm }) => {
     fetchEvents();
   }, []);
 
-  // Filter based on category or search term
   useEffect(() => {
     let filtered = allEvents;
 
     if (category) {
+      console.log(category)
       filtered = filtered.filter((event) => {
-        event.type.toLowerCase().includes(category.toLowerCase());
+        return event.type === category;
       });
     }
 

@@ -5,7 +5,7 @@ import {
   faCalendarAlt,
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import eventImage from "../assets/event-image.jpg";
+import eventImage from "../assets/placeholder.jpeg";
 
 const EventCard = ({ event }) => {
   const { title, type, date, startTime, location, id, image } = event;

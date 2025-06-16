@@ -100,7 +100,7 @@ function EditEventPage() {
                 className="btn btn-sm py-2 px-3 rounded-2"
               >
                 <ArrowLeft className="me-2" />
-                Back to Events
+                Back to Event
               </Button>
             </Col>
           </Row>

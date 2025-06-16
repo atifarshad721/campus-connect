@@ -38,6 +38,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
   const [formData, setFormData] = useState({
     name: event.name || "",
     email: event.email || "",
+    pass: event.pass || "",
     title: event.title || "",
     type: event.type || "",
     date: event.date ? formatDateForInput(event.date) : "",
@@ -101,6 +102,12 @@ const EventForm = ({ isEditMode, event = {} }) => {
     return newErrors;
   };
 
+  const tomorrow = (() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 1);
+    return d.toISOString().split("T")[0];
+  })();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -112,9 +119,9 @@ const EventForm = ({ isEditMode, event = {} }) => {
 
     setLoading(true);
 
-    let payload = { ...formData };
+    let inputData = { ...formData };
 
-    // if there’s an image to upload, do it first and merge it into payload
+    // if there’s an image to upload, do it first and merge it into inputData
     if (selectedImage) {
       const imageUrl = await uploadImageToCloudinary(selectedImage);
       console.log("Image URL:", imageUrl);
@@ -123,18 +130,18 @@ const EventForm = ({ isEditMode, event = {} }) => {
         setFailed(true);
         return;
       }
-      payload.image = imageUrl;
+      inputData.image = imageUrl;
     }
 
-    payload = {
-      ...payload,
-      date: formatDateForDisplay(payload.date),
-      startTime: formatTimeWithAMPM(payload.startTime),
-      endTime: formatTimeWithAMPM(payload.endTime),
-      capacity: parseInt(payload.capacity),
+    inputData = {
+      ...inputData,
+      date: formatDateForDisplay(inputData.date),
+      startTime: formatTimeWithAMPM(inputData.startTime),
+      endTime: formatTimeWithAMPM(inputData.endTime),
+      capacity: parseInt(inputData.capacity),
     };
 
-    console.log("Image URL in payload:", payload.image);
+    console.log("Image URL in inputData:", inputData.image);
 
     const method = isEditMode ? "PUT" : "POST";
     const endpoint = isEditMode ? `/api/events/${event.id}` : "/api/events";
@@ -145,7 +152,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(inputData),
       });
 
       const newEventData = await res.json();
@@ -327,9 +334,26 @@ const EventForm = ({ isEditMode, event = {} }) => {
                           />
                         </InputGroup>
                       </Col>
+                      {!isEditMode && <Col md={6} className="mb-3">
+                        <Form.Label className="fw-medium">
+                          Password <span className="text-danger">*</span>
+                        </Form.Label>
+                        <InputGroup>
+                          <InputGroup.Text className="bg-white border-end-0">
+                            <Envelope className="text-muted" />
+                          </InputGroup.Text>
+                          <Form.Control
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                          />
+                        </InputGroup>
+                      </Col>}
                     </Row>
                   </div>
-
                   {/* Event Details */}
                   <div className="mb-4">
                     <h4 className="fw-bold mb-4">Event Details</h4>
@@ -482,7 +506,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
                           <Form.Control
                             type="date"
                             name="date"
-                            min={new Date().toISOString().split("T")[0]}
+                            min={tomorrow}
                             value={formData.date}
                             onChange={handleChange}
                             required
@@ -550,17 +574,14 @@ const EventForm = ({ isEditMode, event = {} }) => {
                       </InputGroup>
                     </Form.Group>
                   </div>
-
                   {errors.time && (
                     <div className="alert alert-danger py-2 mb-4">
                       {errors.time}
                     </div>
                   )}
-
                   <Button type="submit" className="w-100 py-2 fw-semibold fs-6">
                     {isEditMode ? "Update" : "Submit"} Event
                   </Button>
-
                   <p className="text-center text-muted small mb-0 mt-3">
                     By submitting this form, you agree to our{" "}
                     <a href="#" className="text-decoration-none">

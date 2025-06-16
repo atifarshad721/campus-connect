@@ -8,7 +8,7 @@ function AddEventPage() {
         background: "linear-gradient(to bottom, #eff6ff, #ffffff)",
       }}
     >
-      <EventHeader isAdd={true}/>
+      <EventHeader isAdd={true} />
       <EventForm isEditMode={false} />
     </main>
   );
