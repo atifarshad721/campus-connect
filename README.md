@@ -32,10 +32,8 @@ Campus Connect is a React-based event management web application designed to hel
 ### Additional Features
 - Filter events by type
 - Search events by title
-- Department-based filtering (if added)
-- EmailJS integration for event reminders (optional)
-- "Add to Google Calendar" (optional)
-- Images are stored using the Imgur API
+- Add Event to Google Calendar with one Click
+- Images are stored using the Cloudinary API
 - JSON Server used as a mock backend
 
 ---
@@ -44,7 +42,7 @@ Campus Connect is a React-based event management web application designed to hel
 
 - **Frontend:** React, Bootstrap 5, React-Bootstrap
 - **Backend:** JSON Server (Mock REST API)
-- **Other Tools:** Imgur API (for image uploads), EmailJS (optional)
+- **Other Tools:** Cloudinary API (for image uploads)
 
 ---
 
