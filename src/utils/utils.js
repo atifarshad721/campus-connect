@@ -1,3 +1,5 @@
+import emailjs from "@emailjs/browser";
+
 export const formatDateForDisplay = (dateString) => {
   const dateObj = new Date(dateString);
   return dateObj.toLocaleDateString("en-US", {
@@ -31,13 +33,12 @@ export function trimTime(timeString) {
   return timeString.split(" ")[0]; // "06:30 PM" -> "06:30"
 }
 
-export function getPreviousDay(dateStr){
+export function getPreviousDay(dateStr) {
   const date = new Date(dateStr);
   date.setDate(date.getDate() - 1);
   date.setHours(0, 0, 0, 0);
   return date;
 }
-
 
 export const uploadImageToCloudinary = async (file) => {
   const formData = new FormData();
@@ -45,10 +46,13 @@ export const uploadImageToCloudinary = async (file) => {
   formData.append("upload_preset", "campus_connect_uploads");
 
   try {
-    const res = await fetch("https://api.cloudinary.com/v1_1/dwort03lt/image/upload", {
-      method: "POST",
-      body: formData,
-    });
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dwort03lt/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
     if (!res.ok) throw new Error("Upload failed");
 
@@ -60,3 +64,31 @@ export const uploadImageToCloudinary = async (file) => {
   }
 };
 
+export const sendEmailReminder = (
+  name,
+  email,
+  title,
+  date,
+  startTime,
+  endTime,
+  location,
+  organizer
+) => {
+  const templateParams = {
+    name: name,
+    email: email,
+    title: title,
+    date: date,
+    startTime: startTime,
+    endTime: endTime,
+    location: location,
+    organizer: organizer,
+  };
+
+  return emailjs.send(
+    "service_0i6qspf",
+    "template_4wwpz6b",
+    templateParams,
+    "7VkHdJWxviYicu7XW"
+  );
+};

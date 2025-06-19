@@ -14,6 +14,8 @@ const EventDetailsPage = () => {
   const [showRSVPSuccess, setShowRSVPSuccess] = useState(false);
   const [showDuplicateRSVP, setShowDuplicateRSVP] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -99,7 +101,12 @@ const EventDetailsPage = () => {
           className="d-flex justify-content-center align-items-center py-1"
           style={{ backgroundColor: "#f0f6ff", minHeight: "100vh" }}
         >
-          <RSVPSuccess event={event} setShowRSVPSuccess={setShowRSVPSuccess} />
+          <RSVPSuccess
+            event={event}
+            setShowRSVPSuccess={setShowRSVPSuccess}
+            name={name}
+            email={email}
+          />
         </div>
       ) : (
         <>
@@ -115,6 +122,10 @@ const EventDetailsPage = () => {
                     setShowDuplicateRSVP={setShowDuplicateRSVP}
                     setFailed={setFailed}
                     setEvent={setEvent}
+                    name={name}
+                    setName={setName}
+                    email={email}
+                    setEmail={setEmail}
                   />
                 </Row>
               </Container>

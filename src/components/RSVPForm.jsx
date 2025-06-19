@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Col, Form, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -10,9 +9,11 @@ const RSVPForm = ({
   setShowDuplicateRSVP,
   setFailed,
   setEvent,
+  name,
+  setName,
+  email,
+  setEmail,
 }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,6 +53,7 @@ const RSVPForm = ({
               rsvpedEvents: [...user.rsvpedEvents, newRSVPEntry],
             }),
           });
+          setShowRSVPSuccess(true);
         } else {
           setShowDuplicateRSVP(true);
           setTimeout(() => {

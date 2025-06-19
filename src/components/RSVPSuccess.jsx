@@ -1,10 +1,12 @@
+import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Calendar3, GeoAlt } from "react-bootstrap-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { sendEmailReminder } from "../utils/utils";
 
-const RSVPSuccess = ({ event, setShowRSVPSuccess }) => {
+const RSVPSuccess = ({ event, setShowRSVPSuccess, name, email }) => {
   const buildGoogleCalendarUrl = () => {
     const formatToGoogleDateTime = (date, time) => {
       const [hourStr, minuteStr] = time.split(":");
@@ -24,6 +26,32 @@ const RSVPSuccess = ({ event, setShowRSVPSuccess }) => {
 
     return url;
   };
+
+  useEffect(() => {
+    console.log("Sending email reminder to user:", name, email);
+    if (name && email) {
+      const sendEmail = async () => {
+        try {
+          const res = await sendEmailReminder(
+            name,
+            email,
+            event.title,
+            event.date,
+            event.startTime,
+            event.endTime,
+            event.location,
+            event.organizer,
+            event.id
+          );
+          console.log("Email reminder sent successfully:", res);
+        } catch (error) {
+          console.error("Error sending email reminder:", error);
+        }
+      };
+
+      sendEmail();
+    }
+  }, [event]);
 
   return (
     <div
@@ -74,7 +102,8 @@ const RSVPSuccess = ({ event, setShowRSVPSuccess }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faCalendarAlt} className="me-2 text-white" /> Add to Calendar
+            <FontAwesomeIcon icon={faCalendarAlt} className="me-2 text-white" />{" "}
+            Add to Calendar
           </Button>
         </div>
 
