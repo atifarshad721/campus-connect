@@ -9,7 +9,7 @@ const FeaturedEvents = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await fetch("/api/events?_limit=3");
+      const res = await fetch("https://hostapi-production-7546.up.railway.app/events?_limit=3");
       const data = await res.json();
       setEvents(data);
     };

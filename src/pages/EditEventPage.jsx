@@ -16,7 +16,7 @@ function EditEventPage() {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await fetch(`/api/events/${id}`);
+        const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${id}`);
         const data = await response.json();
         setEvent(data);
         console.log("Fetched event:", data.email);

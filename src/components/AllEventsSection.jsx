@@ -12,7 +12,7 @@ const AllEventsSection = ({ category, searchTerm }) => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("/api/events");
+        const res = await fetch("https://hostapi-production-7546.up.railway.app/events");
         const data = await res.json();
         setAllEvents(data);
         setFilteredEvents(data);

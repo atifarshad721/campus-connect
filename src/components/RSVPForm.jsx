@@ -28,7 +28,7 @@ const RSVPForm = ({
       // 1. Update the event RSVP count
 
       // 2. Check if user exists
-      const userRes = await fetch(`/api/users?email=${email}`);
+      const userRes = await fetch(`https://hostapi-production-7546.up.railway.app/users?email=${email}`);
       const users = await userRes.json();
 
       if (users.length > 0) {
@@ -39,14 +39,14 @@ const RSVPForm = ({
         );
 
         if (!alreadyRSVPed) {
-          const response = await fetch(`/api/events/${event.id}`, {
+          const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${event.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ rsvpCount: event.rsvpCount + 1 }),
           });
           const updatedEvent = await response.json();
           setEvent(updatedEvent);
-          await fetch(`/api/users/${user.id}`, {
+          await fetch(`https://hostapi-production-7546.up.railway.app/users/${user.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -61,7 +61,7 @@ const RSVPForm = ({
           }, 3000); // Redirect after 3 seconds
         }
       } else {
-        const response = await fetch(`/api/events/${event.id}`, {
+        const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${event.id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ rsvpCount: event.rsvpCount + 1 }),
@@ -69,7 +69,7 @@ const RSVPForm = ({
         const updatedEvent = await response.json();
         setEvent(updatedEvent);
         // Create a new user
-        await fetch("/api/users", {
+        await fetch("https://hostapi-production-7546.up.railway.app/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

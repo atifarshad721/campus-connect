@@ -146,7 +146,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
     console.log("Image URL in inputData:", inputData.image);
 
     const method = isEditMode ? "PUT" : "POST";
-    const endpoint = isEditMode ? `/api/events/${event.id}` : "/api/events";
+    const endpoint = isEditMode ? `https://hostapi-production-7546.up.railway.app/events/${event.id}` : "https://hostapi-production-7546.up.railway.app/events";
 
     try {
       const res = await fetch(endpoint, {

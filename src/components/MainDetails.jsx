@@ -70,7 +70,7 @@ const MainDetails = ({ event, setShowPage }) => {
       console.log("Login successful");
 
       try {
-        const response = await fetch(`/api/events/${id}`, {
+        const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${id}`, {
           method: "DELETE",
         });
         console.log("Event deleted successfully: ", response);
