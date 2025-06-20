@@ -12,7 +12,7 @@ const AllEventsSection = ({ category, searchTerm }) => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://localhost:8080/events");
+        const res = await fetch("/api/events");
         const data = await res.json();
         setAllEvents(data);
         setFilteredEvents(data);
