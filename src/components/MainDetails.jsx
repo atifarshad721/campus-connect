@@ -23,6 +23,8 @@ const MainDetails = ({ event, setShowPage }) => {
   const [disableRSVP, setDisableRSVP] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   const handleRSVP = () => {
     const rsvpForm = document.getElementById("rsvp-form");
     rsvpForm.style.display = "block";
@@ -70,7 +72,7 @@ const MainDetails = ({ event, setShowPage }) => {
       console.log("Login successful");
 
       try {
-        const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${id}`, {
+        const response = await fetch(`${BASE_URL}/events/${id}`, {
           method: "DELETE",
         });
         console.log("Event deleted successfully: ", response);

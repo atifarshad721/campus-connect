@@ -33,7 +33,9 @@ const EventForm = ({ isEditMode, event = {} }) => {
   const [failed, setFailed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [errors, setErrors] = useState({}); 
+  const [errors, setErrors] = useState({});
+
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const [formData, setFormData] = useState({
     name: event.name || "",
@@ -146,7 +148,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
     console.log("Image URL in inputData:", inputData.image);
 
     const method = isEditMode ? "PUT" : "POST";
-    const endpoint = isEditMode ? `https://hostapi-production-7546.up.railway.app/events/${event.id}` : "https://hostapi-production-7546.up.railway.app/events";
+    const endpoint = isEditMode ? `${BASE_URL}/events/${event.id}` : `${BASE_URL}/events`;
 
     try {
       const res = await fetch(endpoint, {

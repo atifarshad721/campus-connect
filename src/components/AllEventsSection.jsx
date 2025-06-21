@@ -8,11 +8,13 @@ const AllEventsSection = ({ category, searchTerm }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6); // initially visible cards
 
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   // Fetch all events once
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("https://hostapi-production-7546.up.railway.app/events");
+        const res = await fetch(`${BASE_URL}/events`);
         const data = await res.json();
         setAllEvents(data);
         setFilteredEvents(data);

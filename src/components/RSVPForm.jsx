@@ -15,6 +15,8 @@ const RSVPForm = ({
   setEmail,
 }) => {
 
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,7 +30,7 @@ const RSVPForm = ({
       // 1. Update the event RSVP count
 
       // 2. Check if user exists
-      const userRes = await fetch(`https://hostapi-production-7546.up.railway.app/users?email=${email}`);
+      const userRes = await fetch(`${BASE_URL}/users?email=${email}`);
       const users = await userRes.json();
 
       if (users.length > 0) {
@@ -39,14 +41,14 @@ const RSVPForm = ({
         );
 
         if (!alreadyRSVPed) {
-          const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${event.id}`, {
+          const response = await fetch(`${BASE_URL}/events/${event.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ rsvpCount: event.rsvpCount + 1 }),
           });
           const updatedEvent = await response.json();
           setEvent(updatedEvent);
-          await fetch(`https://hostapi-production-7546.up.railway.app/users/${user.id}`, {
+          await fetch(`${BASE_URL}/users/${user.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -61,7 +63,7 @@ const RSVPForm = ({
           }, 3000); // Redirect after 3 seconds
         }
       } else {
-        const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${event.id}`, {
+        const response = await fetch(`${BASE_URL}/events/${event.id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ rsvpCount: event.rsvpCount + 1 }),
@@ -69,7 +71,7 @@ const RSVPForm = ({
         const updatedEvent = await response.json();
         setEvent(updatedEvent);
         // Create a new user
-        await fetch("https://hostapi-production-7546.up.railway.app/users", {
+        await fetch(`${BASE_URL}/users`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

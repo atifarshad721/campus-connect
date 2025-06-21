@@ -17,10 +17,12 @@ const EventDetailsPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await fetch(`https://hostapi-production-7546.up.railway.app/events/${id}`);
+        const response = await fetch(`${BASE_URL}/events/${id}`);
         const data = await response.json();
         setEvent(data);
       } catch (error) {

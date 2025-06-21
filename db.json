@@ -13,7 +13,7 @@
       "about": "This seminar will provide an in-depth introduction to Artificial Intelligence, covering its history, fundamental concepts, and current applications. Experts from leading tech companies will discuss machine learning, neural networks, and the future of AI. Attendees will gain a comprehensive understanding of this rapidly evolving field and its impact on various industries.",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750053011/e0rnxxbjbemkang7rgrx.jpg",
       "organizer": "Computer Science Department",
-      "rsvpCount": 17,
+      "rsvpCount": 20,
       "id": "2"
     },
     {
@@ -29,7 +29,7 @@
       "about": "Come relax and connect with fellow students at our annual Spring Mixer! Enjoy refreshments, music, and fun activities. This is a great opportunity to expand your network, meet new friends, and unwind after a busy semester. Don't miss out on an evening of good company and lively conversation in a relaxed atmosphere.",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750053038/xtrl7qzutkccg3bzdzin.jpg",
       "organizer": "Student Life Office",
-      "rsvpCount": 0,
+      "rsvpCount": 2,
       "id": "3"
     },
     {
@@ -45,7 +45,7 @@
       "about": "Enhance your academic writing skills in this focused workshop. Learn strategies for structuring essays, conducting effective research, citing sources properly, and refining your prose for clarity and impact. This session is ideal for students looking to improve their research papers, theses, and other academic assignments, providing practical tips and personalized feedback.",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750053063/wlm58vjixvcjq5tkpacq.jpg",
       "organizer": "Writing Center",
-      "rsvpCount": 4,
+      "rsvpCount": 5,
       "id": "4"
     },
     {
@@ -77,7 +77,7 @@
       "about": "This workshop is perfect for beginners interested in learning the basics of coding. We'll cover fundamental programming concepts, syntax, and hands-on exercises in Python. By the end of the session, you'll be able to write simple scripts and understand core computational logic, setting a strong foundation for further programming studies and projects.",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750053312/pwxuhfnur9ix7gzmpxpz.jpg",
       "organizer": "Computer Science Department",
-      "rsvpCount": 0,
+      "rsvpCount": 1,
       "id": "6"
     },
     {
@@ -109,7 +109,7 @@
       "about": "Unwind with friends and enjoy a night of board games, video games, and casual fun! This social event is a perfect opportunity to de-stress and connect with other students in a relaxed, friendly environment. Snacks and drinks will be provided. Whether you're a seasoned gamer or just looking for a good time, all are welcome!",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750053377/vg0akfvodeidn5jng7ky.jpg",
       "organizer": "Student Activities Board",
-      "rsvpCount": 38,
+      "rsvpCount": 39,
       "id": "8"
     },
     {
@@ -125,7 +125,7 @@
       "about": "Dive into the exciting world of data science in this intensive full-day session. Learn about data collection, cleaning, analysis, and visualization using practical examples and hands-on exercises. This workshop will cover essential tools and techniques to help you extract insights from data and prepare for careers in data-driven fields.",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750053405/ug7fkk3dtpszbqdc6c5w.jpg",
       "organizer": "Statistics Department",
-      "rsvpCount": 9,
+      "rsvpCount": 10,
       "id": "9"
     },
     {
@@ -141,7 +141,7 @@
       "about": "Conquer your fear of public speaking and develop strong presentation skills in this interactive workshop. Learn techniques for engaging your audience, structuring your speech, and delivering with confidence. This session includes practical exercises and constructive feedback to help you become a more persuasive and articulate speaker.",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750053542/vho9wabxiepvnruvbm6h.jpg",
       "organizer": "Communication Department",
-      "rsvpCount": 7,
+      "rsvpCount": 8,
       "id": "10"
     },
     {
@@ -209,21 +209,21 @@
       "id": "14"
     },
     {
-      "id": "15",
+      "name": "Jessica Moore",
+      "email": "jessica.moore@example.com",
+      "pass": "",
       "title": "Alumni Networking Mixer",
-      "password": "pass14",
       "type": "Social",
-      "date": "June 20, 2024",
-      "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1749497163/hizureiviedbggn7yg7b.jpg",
-      "startTime": "05:00 PM",
-      "endTime": "07:30 PM",
+      "date": "November 13, 2025",
+      "startTime": "10:00 AM",
+      "endTime": "04:30 PM",
       "location": "University Club, Main Lounge",
       "capacity": 200,
-      "rsvpCount": 175,
       "about": "Connect with successful alumni from various industries at this exclusive networking mixer. Expand your professional network, gain career insights, and explore potential mentorship opportunities. This event is a fantastic chance to build valuable connections that can help shape your future career path and open new doors.",
+      "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1749497163/hizureiviedbggn7yg7b.jpg",
       "organizer": "Alumni Relations Office",
-      "name": "Jessica Moore",
-      "email": "jessica.moore@example.com"
+      "rsvpCount": 176,
+      "id": "15"
     },
     {
       "id": "4a04",
@@ -257,7 +257,7 @@
       "about": "asas",
       "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750016892/y3cim8yn5u0gahspyh2i.jpg",
       "organizer": "Bhai khud",
-      "rsvpCount": 0
+      "rsvpCount": 1
     },
     {
       "id": "79dc",
@@ -276,6 +276,23 @@
       "organizer": "atifism",
       "rsvpCount": 1,
       "password": "12341234"
+    },
+    {
+      "id": "4bd3",
+      "name": "Haider",
+      "email": "haider@gmail.com",
+      "pass": "haider",
+      "title": "Haider ka event",
+      "type": "Sports",
+      "date": "July 12, 2025",
+      "startTime": "08:00 AM",
+      "endTime": "04:00 PM",
+      "location": "Sports Complex",
+      "capacity": 50,
+      "about": "Haider k event ki descripton",
+      "image": "https://res.cloudinary.com/dwort03lt/image/upload/v1750407578/gv0ip5iku5uu4gmddlw8.jpg",
+      "organizer": "haider khud",
+      "rsvpCount": 1
     }
   ],
   "users": [
@@ -293,6 +310,11 @@
           "eventId": "2",
           "title": "Introduction to AI Seminar",
           "dateRsvped": "June 13, 2025"
+        },
+        {
+          "eventId": "3",
+          "title": "Spring Mixer Social Event",
+          "dateRsvped": "June 16, 2025"
         }
       ]
     },
@@ -317,6 +339,52 @@
           "eventId": "79dc",
           "title": "Half Graduation",
           "dateRsvped": "June 16, 2025"
+        }
+      ]
+    },
+    {
+      "id": "6d00",
+      "name": "atif",
+      "email": "atif@asxp.com",
+      "rsvpedEvents": [
+        {
+          "eventId": "2",
+          "title": "Introduction to AI Seminar",
+          "dateRsvped": "June 16, 2025"
+        }
+      ]
+    },
+    {
+      "id": "e00f",
+      "name": "atifff",
+      "email": "idforwar@gmail.com",
+      "rsvpedEvents": [
+        {
+          "eventId": "15",
+          "title": "Alumni Networking Mixer",
+          "dateRsvped": "June 19, 2025"
+        },
+        {
+          "eventId": "2c65",
+          "title": "Bilal bhai ka event",
+          "dateRsvped": "June 19, 2025"
+        },
+        {
+          "eventId": "2",
+          "title": "Introduction to AI Seminar",
+          "dateRsvped": "June 19, 2025"
+        }
+      ]
+    },
+    {
+      "id": "7e98",
+      "name": "azeem",
+      "email": "engr.azeem.arshad@gmail.com",
+      "rsvpedEvents": [
+        {
+          "eventId": "4bd3",
+          "title": "Haider ka event",
+          "dateRsvped": "June 20, 2025"
         }
       ]
     }

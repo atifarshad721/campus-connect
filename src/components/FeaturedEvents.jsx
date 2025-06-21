@@ -7,9 +7,11 @@ import "../App.css";
 const FeaturedEvents = () => {
   const [events, setEvents] = useState([]);
 
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await fetch("https://hostapi-production-7546.up.railway.app/events?_limit=3");
+      const res = await fetch(`${BASE_URL}/events?_limit=3`);
       const data = await res.json();
       setEvents(data);
     };
