@@ -16,7 +16,6 @@ function EditEventPage() {
   const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
-    console.log(BASE_URL);
     const fetchEvent = async () => {
       try {
         const response = await fetch(`${BASE_URL}/events/${id}`);

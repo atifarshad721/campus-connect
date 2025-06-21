@@ -12,6 +12,7 @@ const AllEventsSection = ({ category, searchTerm }) => {
 
   // Fetch all events once
   useEffect(() => {
+    console.log(BASE_URL);
     const fetchEvents = async () => {
       try {
         const res = await fetch(`${BASE_URL}/events`);
