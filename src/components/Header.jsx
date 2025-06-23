@@ -3,8 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Header = () => {
-
-  const linkClass = ({isActive}) => isActive ? "text-primary me-4 my-auto" : "my-auto me-4 text-secondary";
+  const linkClass = ({ isActive }) =>
+    isActive ? "text-primary me-4 my-3" : "me-4 text-secondary my-3";
 
   const activeLinkStyle = {
     textDecoration: "none",
@@ -30,7 +30,10 @@ const Header = () => {
           </Navbar.Brand>
 
           {/* Toggle for Offcanvas */}
-          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" className="shadow-none border-0" />
+          <Navbar.Toggle
+            aria-controls="offcanvasNavbar-expand-lg"
+            className="shadow-none border-0"
+          />
 
           {/* Offcanvas Menu */}
           <Navbar.Offcanvas
@@ -38,22 +41,31 @@ const Header = () => {
             aria-labelledby="offcanvasNavbarLabel-expand-lg"
             placement="start"
           >
-            <Offcanvas.Header closeButton className="border-bottom shadow-sm justify-content-center">
+            <Offcanvas.Header
+              closeButton
+              className="border-bottom shadow-sm justify-content-center"
+            >
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-lg">
-                <img
-                  src={logo}
-                  alt="brand-logo"
-                  height="35"
-                />
+                <img src={logo} alt="brand-logo" height="35" />
               </Offcanvas.Title>
             </Offcanvas.Header>
 
             <Offcanvas.Body className="d-flex flex-column flex-lg-row">
               <Nav className="justify-content-center align-items-center flex-grow-1 fs-6">
-                <NavLink as={Link} to="/" className={linkClass} style={activeLinkStyle}>
+                <NavLink
+                  as={Link}
+                  to="/"
+                  className={linkClass}
+                  style={activeLinkStyle}
+                >
                   Home
                 </NavLink>
-                <NavLink as={Link} to="/events" className={linkClass} style={activeLinkStyle}>
+                <NavLink
+                  as={Link}
+                  to="/events"
+                  className={linkClass}
+                  style={activeLinkStyle}
+                >
                   Events
                 </NavLink>
               </Nav>

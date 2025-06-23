@@ -21,7 +21,6 @@ function EditEventPage() {
         const response = await fetch(`${BASE_URL}/events/${id}`);
         const data = await response.json();
         setEvent(data);
-        console.log("Fetched event:", data.email);
       } catch (error) {
         console.error("Error fetching event:", error);
       } finally {
@@ -39,7 +38,7 @@ function EditEventPage() {
 
     // Compare credentials
     if (
-      (event.email === email && event.password === password) ||
+      (event.email == email && event.pass == password) ||
       ("admin@events.com" === email && "admin" === password)
     ) {
       setIsAuthenticated(true);

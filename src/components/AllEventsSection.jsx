@@ -12,7 +12,6 @@ const AllEventsSection = ({ category, searchTerm }) => {
 
   // Fetch all events once
   useEffect(() => {
-    console.log(BASE_URL);
     const fetchEvents = async () => {
       try {
         const res = await fetch(`${BASE_URL}/events`);
@@ -31,7 +30,6 @@ const AllEventsSection = ({ category, searchTerm }) => {
     let filtered = allEvents;
 
     if (category) {
-      console.log(category)
       filtered = filtered.filter((event) => {
         return event.type === category;
       });

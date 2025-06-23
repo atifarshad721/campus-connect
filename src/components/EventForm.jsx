@@ -3,7 +3,7 @@ import {
   formatDateForDisplay,
   formatTimeWithAMPM,
   formatDateForInput,
-  trimTime,
+  formatTo24Hour,
   uploadImageToCloudinary,
 } from "../utils/utils";
 import {
@@ -44,8 +44,8 @@ const EventForm = ({ isEditMode, event = {} }) => {
     title: event.title || "",
     type: event.type || "",
     date: event.date ? formatDateForInput(event.date) : "",
-    startTime: event.startTime ? trimTime(event.startTime) : "",
-    endTime: event.endTime ? trimTime(event.endTime) : "",
+    startTime: event.startTime ? event.startTime : "",
+    endTime: event.endTime ? event.endTime : "",
     location: event.location || "",
     capacity: event.capacity || "",
     about: event.about || "",
@@ -135,20 +135,20 @@ const EventForm = ({ isEditMode, event = {} }) => {
       inputData.image = imageUrl;
     }
 
-    console.log("Pass: ", inputData.pass);
-
     inputData = {
       ...inputData,
       date: formatDateForDisplay(inputData.date),
-      startTime: formatTimeWithAMPM(inputData.startTime),
-      endTime: formatTimeWithAMPM(inputData.endTime),
+      startTime: inputData.startTime,
+      endTime: inputData.endTime,
       capacity: parseInt(inputData.capacity),
     };
 
     console.log("Image URL in inputData:", inputData.image);
 
     const method = isEditMode ? "PUT" : "POST";
-    const endpoint = isEditMode ? `${BASE_URL}/events/${event.id}` : `${BASE_URL}/events`;
+    const endpoint = isEditMode
+      ? `${BASE_URL}/events/${event.id}`
+      : `${BASE_URL}/events`;
 
     try {
       const res = await fetch(endpoint, {
@@ -162,7 +162,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
       const newEventData = await res.json();
 
       if (isEditMode) {
-        console.log("Event updated successfully!", newEventData);
+        console.log("Event updated successfully!");
       }
 
       setSuccess(true);
@@ -235,51 +235,51 @@ const EventForm = ({ isEditMode, event = {} }) => {
   }
 
   const startTimeOptions = [
-    "08:00",
-    "08:30",
-    "09:00",
-    "09:30",
-    "10:00",
-    "10:30",
-    "11:00",
-    "11:30",
-    "12:00",
-    "12:30",
-    "13:00",
-    "13:30",
-    "14:00",
-    "14:30",
-    "15:00",
-    "15:30",
-    "16:00",
-    "16:30",
-    "17:00",
-    "17:30",
-    "18:00",
+    "08:00 AM",
+    "08:30 AM",
+    "09:00 AM",
+    "09:30 AM",
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "01:00 PM",
+    "01:30 PM",
+    "02:00 PM",
+    "02:30 PM",
+    "03:00 PM",
+    "03:30 PM",
+    "04:00 PM",
+    "04:30 PM",
+    "05:00 PM",
+    "05:30 PM",
+    "06:00 PM",
   ];
 
   const endTimeOptions = [
-    "10:00",
-    "10:30",
-    "11:00",
-    "11:30",
-    "12:00",
-    "12:30",
-    "13:00",
-    "13:30",
-    "14:00",
-    "14:30",
-    "15:00",
-    "15:30",
-    "16:00",
-    "16:30",
-    "17:00",
-    "17:30",
-    "18:00",
-    "18:30",
-    "19:00",
-    "19:30",
-    "20:00",
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "01:00 PM",
+    "01:30 PM",
+    "02:00 PM",
+    "02:30 PM",
+    "03:00 PM",
+    "03:30 PM",
+    "04:00 PM",
+    "04:30 PM",
+    "05:00 PM",
+    "05:30 PM",
+    "06:00 PM",
+    "06:30 PM",
+    "07:00 PM",
+    "07:30 PM",
+    "08:00 PM",
   ];
 
   return (
@@ -338,24 +338,26 @@ const EventForm = ({ isEditMode, event = {} }) => {
                           />
                         </InputGroup>
                       </Col>
-                      {!isEditMode && <Col md={6} className="mb-3">
-                        <Form.Label className="fw-medium">
-                          Password <span className="text-danger">*</span>
-                        </Form.Label>
-                        <InputGroup>
-                          <InputGroup.Text className="bg-white border-end-0">
-                            <Envelope className="text-muted" />
-                          </InputGroup.Text>
-                          <Form.Control
-                            type="password"
-                            name="pass"
-                            placeholder="Enter your password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                          />
-                        </InputGroup>
-                      </Col>}
+                      {!isEditMode && (
+                        <Col md={6} className="mb-3">
+                          <Form.Label className="fw-medium">
+                            Password <span className="text-danger">*</span>
+                          </Form.Label>
+                          <InputGroup>
+                            <InputGroup.Text className="bg-white border-end-0">
+                              <Envelope className="text-muted" />
+                            </InputGroup.Text>
+                            <Form.Control
+                              type="password"
+                              name="pass"
+                              placeholder="Enter your password"
+                              value={formData.password}
+                              onChange={handleChange}
+                              required
+                            />
+                          </InputGroup>
+                        </Col>
+                      )}
                     </Row>
                   </div>
                   {/* Event Details */}
@@ -534,7 +536,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
                           <option>Select time</option>
                           {startTimeOptions.map((time) => (
                             <option key={time} value={time}>
-                              {formatTimeWithAMPM(time)}
+                              {time}
                             </option>
                           ))}
                         </Form.Select>
@@ -552,7 +554,7 @@ const EventForm = ({ isEditMode, event = {} }) => {
                           <option>Select time</option>
                           {endTimeOptions.map((time) => (
                             <option key={time} value={time}>
-                              {formatTimeWithAMPM(time)}
+                              {time}
                             </option>
                           ))}
                         </Form.Select>

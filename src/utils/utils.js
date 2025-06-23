@@ -33,6 +33,26 @@ export function trimTime(timeString) {
   return timeString.split(" ")[0]; // "06:30 PM" -> "06:30"
 }
 
+export const formatTo24Hour = (time12h) => {
+  if (!time12h) return "";
+  const [time, modifier] = time12h.split(" ");
+  let [hours, minutes] = time.split(":");
+
+  hours = parseInt(hours);
+
+  if (modifier === "PM" && hours < 12) {
+    hours += 12;
+  }
+
+  if (modifier === "AM" && hours === 12) {
+    hours = 0;
+  }
+
+  return `${hours.toString().padStart(2, "0")}:${minutes}`;
+};
+
+
+
 export function getPreviousDay(dateStr) {
   const date = new Date(dateStr);
   date.setDate(date.getDate() - 1);

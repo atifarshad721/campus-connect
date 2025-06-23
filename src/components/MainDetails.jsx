@@ -65,8 +65,8 @@ const MainDetails = ({ event, setShowPage }) => {
 
     // Compare credentials
     if (
-      (event.email === email && event.password === password) ||
-      ("admin@events.com" === email && "admin" === password)
+      (event.email == email && event.pass == password) ||
+      ("admin@events.com" == email && "admin" == password)
     ) {
       setIsAuthenticated(true);
       console.log("Login successful");
@@ -198,7 +198,7 @@ const MainDetails = ({ event, setShowPage }) => {
             ❌
           </div>
           <h4 className="text-danger fw-bold mb-2">Event Deletion Failed!</h4>
-          <p className="text-muted mb-0">You will be redirected shortly.</p>
+          <p className="text-muted mb-0">Invalid email or password</p>
         </div>
       </div>
     );

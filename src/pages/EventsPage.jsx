@@ -77,7 +77,6 @@ function EventsPage() {
                 </Nav.Link>
               </Nav.Item>
             ))}
-            {console.log(category)}
           </Nav>
         </div>
       </Container>

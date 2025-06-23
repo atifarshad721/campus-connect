@@ -5,11 +5,9 @@ import EventCard from "./EventCard";
 import "../App.css";
 
 const FeaturedEvents = () => {
-  console.log("FeaturedEvents component rendered");
   const [events, setEvents] = useState([]);
 
   const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  console.log(BASE_URL);
 
   useEffect(() => {
     const fetchEvents = async () => {
