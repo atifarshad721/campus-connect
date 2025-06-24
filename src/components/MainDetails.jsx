@@ -86,6 +86,7 @@ const MainDetails = ({ event, setShowPage }) => {
         setTimeout(() => {
           setFailed(false);
           isAuthenticated(true);
+          setShowPage(true);
         }, 2500);
       }
     } else {
@@ -94,6 +95,7 @@ const MainDetails = ({ event, setShowPage }) => {
       setFailed(true);
       setTimeout(() => {
         setFailed(false);
+        setShowPage(true);
       }, 3000);
     }
   };
