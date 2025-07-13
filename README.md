@@ -2,7 +2,7 @@
 
 Campus Connect is a React-based event management web application designed to help universities manage and display campus events efficiently. The application allows users to view, add, edit, delete, and RSVP to campus events. It includes filtering, searching, image uploads, and business rules to ensure proper event scheduling and participation.
 
-[Campus Connect](https://campus-connect-events.web.app/)
+[Campus Connect Website](https://campus-connect-events.web.app/)
 
 ---
 
