@@ -2,11 +2,7 @@
 
 Campus Connect is a React-based event management web application designed to help universities manage and display campus events efficiently. The application allows users to view, add, edit, delete, and RSVP to campus events. It includes filtering, searching, image uploads, and business rules to ensure proper event scheduling and participation.
 
-## 👤 Project Information
-
-- **Name:** Muhammad Atif Arshad  
-- **Roll Number:** F23BDOCS1M01125  
-- **Section:** BSCS-4th-1M  
+[Campus Connect](https://campus-connect-events.web.app/)
 
 ---
 
@@ -19,6 +15,7 @@ Campus Connect is a React-based event management web application designed to hel
 - View detailed event information
 - RSVP to events (with constraints)
 - Success/Failure popups after operations
+- Receive reminders
 
 ### Business Constraints
 - RSVP count must not exceed event capacity
@@ -35,6 +32,7 @@ Campus Connect is a React-based event management web application designed to hel
 - Add Event to Google Calendar with one Click
 - Images are stored using the Cloudinary API
 - JSON Server used as a mock backend
+- Get Email reminders via EmailJS
 
 ---
 
@@ -42,7 +40,7 @@ Campus Connect is a React-based event management web application designed to hel
 
 - **Frontend:** React, Bootstrap 5, React-Bootstrap
 - **Backend:** JSON Server (Mock REST API)
-- **Other Tools:** Cloudinary API (for image uploads)
+- **Other Tools:** Cloudinary API (for image uploads), EmailJS (for automated reminders)
 
 ---
 
